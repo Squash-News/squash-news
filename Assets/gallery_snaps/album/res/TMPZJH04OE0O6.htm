@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Lytebox - Home</title>
+		
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="content-language" content="en" />
+		
+		<meta name="description" lang="en" content="Lytebox is an alternative to the Lightbox class that Lokesh Dhakar originally wrote. Lytebox was written as a self-contained object that eliminats the dependency of prototype.js, effects.js, and scriptaculous.js. Since the original version of Lytebox (which released with iFrame support), major modifications have been made to improve performance as well as &quot;Slideshow&quot; support, &quot;Themes&quot; support, HTML content support (as opposed to just images) and many more configurable options that allow you to customize the look and feel of Lytebox." />
+		<meta name="keywords" content="image preview, lytebox, litebox, lightbox, javascript, markus, hay, javascript image gallery, dhtml, slideshow, lyteshow, lyteframe, photography, graphics" />
+		
+		<link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+		<link rel="stylesheet" title="Disabled for Preview-in-Browser: misc/styles.css" type="text/css" media="screen" />
+<style type="text/css" media="screen">
+<!--
+
+
+
+-->
+</style>
+		
+		<!-- Lytebox Includes //-->
+		<script type="text/javascript" src="lytebox.js"></script>
+		<link rel="stylesheet" title="Disabled for Preview-in-Browser: lytebox.css" type="text/css" media="screen" />
+<style type="text/css" media="screen">
+<!--
+
+#lbOverlay { position: absolute; top: 0; left: 0; z-index: 99998; width: 100%; height: 500px; }
+	#lbOverlay.grey { background-color: #000000; }
+	#lbOverlay.red { background-color: #330000; }
+	#lbOverlay.green { background-color: #003300; }
+	#lbOverlay.blue { background-color: #011D50; }
+	#lbOverlay.gold { background-color: #666600; }
+
+#lbMain { position: absolute; left: 0; width: 100%; z-index: 99999; text-align: center; line-height: 0; }
+#lbMain a img { border: none; }
+
+#lbOuterContainer { position: relative; background-color: #fff; width: 200px; height: 200px; margin: 0 auto; }
+	#lbOuterContainer.grey { border: 3px solid #888888; }
+	#lbOuterContainer.red { border: 3px solid #DD0000; }
+	#lbOuterContainer.green { border: 3px solid #00B000; }
+	#lbOuterContainer.blue { border: 3px solid #5F89D8; }
+	#lbOuterContainer.gold { border: 3px solid #B0B000; }
+
+#lbDetailsContainer {	font: 10px Verdana, Helvetica, sans-serif; background-color: #fff; width: 100%; line-height: 1.4em;	overflow: auto; margin: 0 auto; }
+	#lbDetailsContainer.grey { border: 3px solid #888888; border-top: none; }
+	#lbDetailsContainer.red { border: 3px solid #DD0000; border-top: none; }
+	#lbDetailsContainer.green { border: 3px solid #00B000; border-top: none; }
+	#lbDetailsContainer.blue { border: 3px solid #5F89D8; border-top: none; }
+	#lbDetailsContainer.gold { border: 3px solid #B0B000; border-top: none; }
+
+#lbImageContainer, #lbIframeContainer { padding: 10px; }
+#lbLoading {
+	position: absolute; top: 45%; left: 0%; height: 32px; width: 100%; text-align: center; line-height: 0; background: url(images/loading.gif) center no-repeat;
+}
+
+#lbHoverNav { position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
+#lbImageContainer>#lbHoverNav { left: 0; }
+#lbHoverNav a { outline: none; }
+
+#lbPrev { width: 49%; height: 100%; background: transparent url(images/blank.gif) no-repeat; display: block; left: 0; float: left; }
+	#lbPrev.grey:hover, #lbPrev.grey:visited:hover { background: url(images/prev_grey.gif) left 15% no-repeat; }
+	#lbPrev.red:hover, #lbPrev.red:visited:hover { background: url(images/prev_red.gif) left 15% no-repeat; }
+	#lbPrev.green:hover, #lbPrev.green:visited:hover { background: url(images/prev_green.gif) left 15% no-repeat; }
+	#lbPrev.blue:hover, #lbPrev.blue:visited:hover { background: url(images/prev_blue.gif) left 15% no-repeat; }
+	#lbPrev.gold:hover, #lbPrev.gold:visited:hover { background: url(images/prev_gold.gif) left 15% no-repeat; }
+	
+#lbNext { width: 49%; height: 100%; background: transparent url(images/blank.gif) no-repeat; display: block; right: 0; float: right; }
+	#lbNext.grey:hover, #lbNext.grey:visited:hover { background: url(images/next_grey.gif) right 15% no-repeat; }
+	#lbNext.red:hover, #lbNext.red:visited:hover { background: url(images/next_red.gif) right 15% no-repeat; }
+	#lbNext.green:hover, #lbNext.green:visited:hover { background: url(images/next_green.gif) right 15% no-repeat; }
+	#lbNext.blue:hover, #lbNext.blue:visited:hover { background: url(images/next_blue.gif) right 15% no-repeat; }
+	#lbNext.gold:hover, #lbNext.gold:visited:hover { background: url(images/next_gold.gif) right 15% no-repeat; }
+
+#lbPrev2, #lbNext2 { text-decoration: none; font-weight: bold; }
+	#lbPrev2.grey, #lbNext2.grey, #lbSpacer.grey { color: #333333; }
+	#lbPrev2.red, #lbNext2.red, #lbSpacer.red { color: #620000; }
+	#lbPrev2.green, #lbNext2.green, #lbSpacer.green { color: #003300; }
+	#lbPrev2.blue, #lbNext2.blue, #lbSpacer.blue { color: #01379E; }
+	#lbPrev2.gold, #lbNext2.gold, #lbSpacer.gold { color: #666600; }
+	
+#lbPrev2_Off, #lbNext2_Off { font-weight: bold; }
+	#lbPrev2_Off.grey, #lbNext2_Off.grey { color: #CCCCCC; }
+	#lbPrev2_Off.red, #lbNext2_Off.red { color: #FFCCCC; }
+	#lbPrev2_Off.green, #lbNext2_Off.green { color: #82FF82; }
+	#lbPrev2_Off.blue, #lbNext2_Off.blue { color: #B7CAEE; }
+	#lbPrev2_Off.gold, #lbNext2_Off.gold { color: #E1E100; }
+	
+#lbDetailsData { padding: 0 10px; }
+	#lbDetailsData.grey { color: #333333; }
+	#lbDetailsData.red { color: #620000; }
+	#lbDetailsData.green { color: #003300; }
+	#lbDetailsData.blue { color: #01379E; }
+	#lbDetailsData.gold { color: #666600; }
+
+#lbDetails { width: 60%; float: left; text-align: left; }
+#lbCaption { display: block; font-weight: bold; }
+#lbNumberDisplay { float: left; display: block; padding-bottom: 1.0em; }
+#lbNavDisplay { float: left; display: block; padding-bottom: 1.0em; }
+
+#lbClose { width: 64px; height: 28px; float: right; margin-bottom: 1px; }
+	#lbClose.grey { background: url(images/close_grey.png) no-repeat; }
+	#lbClose.red { background: url(images/close_red.png) no-repeat; }
+	#lbClose.green { background: url(images/close_green.png) no-repeat; }
+	#lbClose.blue { background: url(images/close_blue.png) no-repeat; }
+	#lbClose.gold { background: url(images/close_gold.png) no-repeat; }
+
+#lbPlay { width: 64px; height: 28px; float: right; margin-bottom: 1px; }
+	#lbPlay.grey { background: url(images/play_grey.png) no-repeat; }
+	#lbPlay.red { background: url(images/play_red.png) no-repeat; }
+	#lbPlay.green { background: url(images/play_green.png) no-repeat; }
+	#lbPlay.blue { background: url(images/play_blue.png) no-repeat; }
+	#lbPlay.gold { background: url(images/play_gold.png) no-repeat; }
+	
+#lbPause { width: 64px; height: 28px; float: right; margin-bottom: 1px; }
+	#lbPause.grey { background: url(images/pause_grey.png) no-repeat; }
+	#lbPause.red { background: url(images/pause_red.png) no-repeat; }
+	#lbPause.green { background: url(images/pause_green.png) no-repeat; }
+	#lbPause.blue { background: url(images/pause_blue.png) no-repeat; }
+	#lbPause.gold { background: url(images/pause_gold.png) no-repeat; }
+
+-->
+</style>
+		<!-- Lytebox Includes //-->
+		
+		<script type="text/javascript">
+		function toggle(id, caller) {
+			var el = document.getElementById(id).style;
+			el.display = el.display == "none" ? "" : "none";
+			
+			// Changes the text to "READ LESS"
+			caller.innerHTML = el.display == "none" ? "more info" : "less info";
+		}
+		</script>
+	</head>
+	
+	<body>
+		<div id="main">
+		  <p>&nbsp;</p>
+	  <div style="text-align: left; float: left; margin-left: 2em; width: 122px;">
+				<strong>Single Image</strong><br />
+				<a href="misc/andromeda.jpg" rel="lytebox" title="Andromeda"><img src="misc/andromeda_thumb.jpg" style="border: none;" alt="Andromeda" /></a>
+			</div>
+			<div style="text-align: left; float: left; width: 316px;">
+				<strong>Grouped Images</strong><br />
+				<a href="misc/orion1.jpg" rel="lytebox[orion]" title="Orion Nebula #1"><img src="misc/orion1_thumb.jpg" style="border: none;" alt="Orion Nebula #1" /></a> 
+				<a href="misc/orion2.jpg" rel="lytebox[orion]" title="Orion Nebula #2"><img src="misc/orion2_thumb.jpg" style="border: none;" alt="Orion Nebula #2" /></a>
+				<a href="misc/orion3.jpg" rel="lytebox[orion]" title="Orion Nebula #3"><img src="misc/orion3_thumb.jpg" style="border: none;" alt="Orion Nebula #3" /></a>
+			</div>
+			<div style="text-align: left; float: left;">
+				<strong>Slideshow (<span class="red">Lyteshow feature</span>)</strong><br />
+				<a href="misc/jupiter_io.jpg" rel="lyteshow[heavens]" title="Jupiter with one of its moons, Io"><img src="file:///Macintosh HD/Users/drmikey/Desktop/highslide/thumbs/Circular.jpg" style="border: none;" alt="Jupiter with one of its moons, Io" /></a> 
+				<a href="file:///Macintosh HD/Users/drmikey/Desktop/highslide/slides/Alcatraz.jpg" rel="lyteshow[heavens]" title="The Milky Way"><img src="file:///Macintosh HD/Users/drmikey/Desktop/highslide/thumbs/Alcatraz.jpg" style="border: none;" alt="The Milky Way" /></a>
+				<a href="misc/pleiads.jpg" rel="lyteshow[heavens]" title="The Pleiades"><img src="misc/pleiads_thumb.jpg" style="border: none;" alt="The Pleiades" /></a>			</div>
+			<div style="clear: both;"></div><br />
+			<div style="text-align: left; left; margin-left: 2em; width: 250px; float: left;">
+				<strong>HTML Content (<span class="red">Lyteframe feature</span>)</strong><br />
+				<ol>
+					<li><a href="http://www.solstation.com/x-objects/andromeda.htm" rel="lyteframe[group]" title="M31 - Andromeda Galaxy" rev="width: 740px; height: 380px;">M31 - Andromeda Galaxy</a></li>
+					<li><a href="http://www.spacetelescope.org/news/html/heic0601.html" rel="lyteframe[group]" title="M42 - Orion Nebula" rev="width: 720px; height: 420px; border: 2px inset #663C46; scrolling: auto;">M42 - Orion Nebula</a></li>
+				</ol>
+			</div>
+			<div style="text-align: left; left; width: 300px; float: left;">
+				<strong>&nbsp;</strong><br />
+				<ul>
+					<li><a href="http://www.google.com" rel="lyteframe" title="Search Google" rev="width: 640px; height: 380px; scrolling: auto;">Search Google!</a></li>
+					<li><a href="_contact.php" rel="lyteframe" title="&lt;span style='color: #ff0000;'&gt;*&lt;/span&gt; = required field" rev="width: 440px; height: 350px; scrolling: no;">Contact Form</a></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div><br />
+
+			<span class="title">How To Use</span><hr />
+			<p><span class="step">Step 1:</span> <a href="lytebox_v3.20.zip" class="download">Download Lytebox v3.20</a></p>
+			<p><span class="step">Step 2:</span>&nbsp;&nbsp;Add the following lines to the <strong>&lt;head&gt;</strong> of your document:</p>
+<pre>&lt;script type="text/javascript" language="javascript" src="lytebox.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="lytebox.css" type="text/css" media="screen" /&gt;</pre>
+
+			<p><span class="step">Step 3:</span>&nbsp;&nbsp;Add the appropriate rel attribute for the type of display you want. See the examples below.<br /><br />
+			&nbsp;&nbsp;&nbsp;&nbsp;<strong>Single Image Example:</strong></p>
+<pre>&lt;a href=&quot;images/image-1.jpg&quot; rel=&quot;lytebox&quot; title=&quot;Image Description&quot;&gt;Image #1&lt;/a&gt;</pre>
+
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Grouped Images Example:</strong></p>
+<pre>&lt;a href=&quot;images/image-1.jpg&quot; rel=&quot;lytebox[vacation]&quot; title=&quot;Mom and Dad&quot;&gt;Mom and Dad&lt;/a&gt;
+&lt;a href=&quot;images/image-2.jpg&quot; rel=&quot;lytebox[vacation]&quot; title=&quot;My Sister&quot;&gt;My Sister&lt;/a&gt;</pre>
+
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Slideshow Example (<span class="red">note the use of lyteshow instead of lytebox</span>):</strong></p>
+<pre>&lt;a href=&quot;images/image-1.jpg&quot; rel=&quot;lyteshow[vacation]&quot; title=&quot;Mom and Dad&quot;&gt;Mom and Dad&lt;/a&gt;
+&lt;a href=&quot;images/image-2.jpg&quot; rel=&quot;lyteshow[vacation]&quot; title=&quot;My Sister&quot;&gt;My Sister&lt;/a&gt;</pre>
+
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>HTML Content Example (<span class="red">note the use of lyteframe instead of lytebox</span>):</strong></p>
+<pre>&lt;a href=&quot;http://www.google.com&quot; rel=&quot;lyteframe&quot; title=&quot;Search Google&quot; 
+   rev=&quot;width: 400px; height: 300px; scrolling: no;&quot;&gt;Google Search&lt;/a&gt;
+
+&lt;a href=&quot;catalog1.htm&quot; rel=&quot;lyteframe[catalog]&quot; title=&quot;Summer Catalog&quot;&gt;Summer Catalog&lt;/a&gt;
+&lt;a href=&quot;catalog1.htm&quot; rel=&quot;lyteframe[catalog]&quot; title=&quot;Winter Catalog&quot;&gt;Winter Catalog&lt;/a&gt;</pre>
+
+			<p><b>Note:</b> When using the &quot;Lyteframe&quot; feature, the REV attribute is used to control the width, height, and scrolling of the window. If the REV attribute is omitted, then by default width/height is set to 400px and scrolling is set to auto. </p>
+			<ul>
+				<li class="custom configuration"><span class="red">Configuration:</span> For a complete list of configurable Lytebox options, click <a href="_configurations.htm" rel="lyteframe" title="Lytebox Configuration" rev="width: 740px; height: 420px; scrolling: auto;">HERE</a>.</li>
+				<li class="custom iframes"><span class="red">iFrames:</span> If you plan to use Lytebox in an iFrame environment, then you need to include <span class="code">lytebox.css</span> in the parent document, while including <span class="code">lytebox.js</span> in the iFrame document.</li>
+				<li class="custom source"><span class="red">Source Code:</span> The JavaScript file (lytebox.js) that is included in the download has been stripped down (comments removed) for optimization purposes. The commented source code is available <a href="lytebox_v3.20_source.zip">HERE</a>.</li>
+				<li class="custom support"><span class="red">Support:</span> Having problems with Lytebox? Visit the <a href="http://www.dolem.com/forum/forumdisplay.php?fid=6" target="_blank">Lytebox Message Boards</a> and find your answer. Be sure to read the <a href="http://www.dolem.com/forum/showthread.php?tid=61" target="_blank">FAQ</a> before posting, as it's likely that someone has already been there and done that.</li>
+			</ul><br />
+
+			<span class="title">Browser Compatibility</span><hr />
+			<p>While browser compatibility was in mind from the start, not all browsers were available for testing. These browsers include Safari, Netscape, and Linux-only 
+			browsers such as Konquerer. The major browsers that were tested cover approximately 98% of browsers in use, so it's fairly safe to say that no major problems will arise.</p>
+			
+			<p>There is a "special" issue that is related to IE only. Sometimes the right side of the page will have a small area that is not overlayed. This is due to the way IE measures it's margins. Adding the following style to the page will fix this issue (but it will also affect the appearance of the entire page): <span class="code">body { margin: 0 auto; }</span></p>
+			<p>The following browsers have been tested with this script:</p>
+			<ul>
+				<li class="custom ie"><strong>IE 5.01 SP2</strong> - The fade effect does not work, but the background is darkened (completely).</li>
+				<li class="custom ie"><strong>IE 5.5 SP2</strong> - No known issues.</li>
+				<li class="custom ie"><strong>IE 6.0 SP2</strong> - Themes don't work properly without modifying lytebox.css. Read <a href="http://www.dolem.com/forum/showthread.php?tid=63" target="_blank">HERE</a> for more information.</li>
+				<li class="custom ie7"><strong>IE 7.0</strong> - No known issues.</li>
+				<li class="custom opera"><strong>Opera 9.21</strong> - No known issues.</li>
+				<li class="custom ff"><strong>Firefox 1.5+</strong> - No known issues, of course.</li>
+			</ul><br />
+
+			<span class="title">License</span><hr />
+			<p>
+			<!--Creative Commons License-->
+			<a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width: 0" src="http://creativecommons.org/images/public/somerights20.png"/></a><br/>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
+			<!--/Creative Commons License-->
+			<!--
+			<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+				<Work rdf:about="">
+					<license rdf:resource="http://creativecommons.org/licenses/by/3.0/" />
+				<dc:title>Lytebox</dc:title>
+				<dc:date>2006-2007</dc:date>
+				<dc:description>
+				Lytebox was written from the Lightbox class that Lokesh Dhakar (http://www.huddletogether.com) originally wrote. The purpose was to write a self-contained object that eliminates the dependency of prototype.js, effects.js, and scriptaculous.js. Most of the core functionality and code was left in tact, and several functions were added to mimic the effects provided by sciptaculous. These newly added functions include: appear(), fade(), resizeW(), resizeH(), and toggleSelects(). Functions that were not needed were removed, as were global variables. Additionally, support has been added for iFrame environments without any code modifications needed by the end user (auto-detect).</dc:description>
+				<dc:creator><Agent><dc:title>Markus F. Hay</dc:title></Agent></dc:creator>
+				<dc:rights><Agent><dc:title>Markus F. Hay</dc:title></Agent></dc:rights>
+				<dc:source rdf:resource="http://www.dolem.com/lytebox/lytebox.js" />
+				</Work>
+				<License rdf:about="http://creativecommons.org/licenses/by/3.0/"><permits rdf:resource="http://web.resource.org/cc/Reproduction"/><permits rdf:resource="http://web.resource.org/cc/Distribution"/><requires rdf:resource="http://web.resource.org/cc/Notice"/><requires rdf:resource="http://web.resource.org/cc/Attribution"/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/></License>
+			</rdf:RDF>
+			-->
+			</p>
+		</div>
+		<div style="text-align: center;">Copyright &copy; 2003-2007, Markus F. Hay. All rights reserved.</div>
+	</body>
+</html>

@@ -1,0 +1,296 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<title>JAlbum LightBox 2
+</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="generator" content="Jalbum 8.0 with the LightBox2 skin"/>
+<meta name="keywords" content=""/>
+<meta name="copyright" content="2008"/>
+
+<link rel="stylesheet" title="Standard" href="res/styles.css" type="text/css" media="screen" />
+<script type='text/javascript' src='res/js/protoculous-shrinkvars.js'></script>
+<script type='text/javascript' src='res/js/protoculous-effects-shrinkvars.js'></script>
+<script type='text/javascript' src='res/js/transitions.js'></script>
+<script type="text/javascript">
+var Lightview = {
+  Version: '2.2.4',
+
+  // Configuration
+  options: {
+    backgroundColor: '#ffffff',                            // Background color of the view
+    border: 12,                                            // Size of the border
+    buttons: {
+      opacity: {                                           // Opacity of inner buttons
+        disabled: 0.4,
+        normal: 0.75,
+        hover: 1
+
+      },
+      side: { display: true },                             // show side buttons
+      innerPreviousNext: { display: true },                // show the inner previous and next button
+      slideshow: { display: true }                         // show slideshow button
+    },
+    cyclic: false,                                         // Makes galleries cyclic, no end/begin.
+    images: '../images/lightview/',                        // The directory of the images, from this file
+    imgNumberTemplate: 'Image #{position} of #{total}',    // Want a different language? change it here
+    overlay: {                                             // Overlay
+	background: '#000',                                  // Background color, Mac Firefox & Safari use overlay.png
+      close: true,                                         // Overlay click closes the view
+      opacity: 0.70,
+      display: true
+    },
+    preloadHover: true,                                    // Preload images on mouseover
+    radius: 8,                                            // Corner radius of the border
+    removeTitles: true,                                    // Set to false if you want to keep title attributes intact
+    resizeDuration: 1.0,                                   // When effects are used, the duration of resizing in seconds
+    slideshowDelay: 5,                                     // Seconds to wait before showing the next slide in slideshow
+    titleSplit: '::',                                      // The characters you want to split title with
+    transition:Effect.Transitions.EaseFromTo,                             // Or your own transition
+ viewport: true,                                        // Stay within the viewport, true is recommended
+    zIndex: 5000,                                          // zIndex of #lightview, #overlay is this -1
+
+    // Optional
+    closeDimensions: {                                     // If you've changed the close button you can change these
+      large: { width: 85, height: 22 },                    // not required but it speeds things up.
+      small: { width: 32, height: 22 },
+      innertop: { width: 22, height: 22 },
+      topclose: { width: 22, height: 18 }                  // when topclose option is used
+    },
+    defaultOptions : {                                     // Default open dimensions for each type
+      ajax:   { width: 400, height: 300 },
+      iframe: { width: 400, height: 300, scrolling: true },
+      inline: { width: 400, height: 300 },
+      flash:  { width: 400, height: 300 },
+      quicktime: { width: 480, height: 220, autoplay: true, controls: true, topclose: true }
+    },
+    sideDimensions: { width: 16, height: 22 }              // see closeDimensions
+  },
+  classids: {
+    quicktime: 'clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B',
+    flash: 'clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
+  },
+  codebases: {
+    quicktime: 'http://www.apple.com/qtactivex/qtplugin.cab#version=7,3,0,0',
+flash: 'http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,115,0'
+  },
+  errors: {
+    requiresPlugin: "<div class='message'>The content your are attempting to view requires the <span class='type'>#{type}</span> plugin.</div><div class='pluginspage'><p>Please download and install the required plugin from:</p><a href='#{pluginspage}' target='_blank'>#{pluginspage}</a></div>"
+  },
+  mimetypes: {
+    quicktime: 'video/quicktime',
+    flash: 'application/x-shockwave-flash'
+  },
+  pluginspages: {
+    quicktime: 'http://www.apple.com/quicktime/download',
+    flash: 'http://www.adobe.com/go/getflashplayer'
+  },
+
+  // used with auto detection
+  typeExtensions: {
+    flash: 'swf',
+    image: 'bmp gif jpeg jpg png',
+    iframe: 'asp aspx cgi cfm htm html php pl php3 php4 php5 phtml rb rhtml shtml txt',
+    quicktime: 'avi mov mpg mpeg movie'
+  }
+};
+</script>
+
+
+
+
+
+
+
+<script type='text/javascript' src='res/js/lightview.js'></script>
+<link rel="alternate" href="album.rss" type="application/rss+xml"/>
+</head>
+
+<body>
+<div id="header">
+<noscript>
+    <div style="color:#000;text-align:center;width:100%;position:absolute;top:200px">
+    You really, really need to enable JavaScript to view this page.<br/>
+    You know, it's about JavaScript.<br/>
+    <br/>
+    And it will make your life much easier, but it's up to you.
+    </div>
+  </noscript>
+
+<div id="navcontainer">
+    
+<!-- Create navigation buttons if more than one index page -->
+</ul></div>
+<h1>JAlbum LightBox 2
+</h1>
+</div>
+<div id="imageContainer">
+
+<!-- Iterate through images and produce an index table -->
+<table align="center" cellspacing="0" cellpadding="5" class="imageContainertable">
+<tr><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_01.jpg" class="lightview" rel="gallery[myset]" title="gallery_01"><img src="thumbs/gallery_01.jpg" width="100" height="100" alt="gallery_01"/></a>
+							
+								
+						
+				
+			gallery_01
+			
+			
+		
+</td><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_02.jpg" class="lightview" rel="gallery[myset]" title="gallery_02"><img src="thumbs/gallery_02.jpg" width="100" height="100" alt="gallery_02"/></a>
+							
+								
+						
+				
+			gallery_02
+			
+			
+		
+</td><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_03.jpg" class="lightview" rel="gallery[myset]" title="gallery_03"><img src="thumbs/gallery_03.jpg" width="100" height="100" alt="gallery_03"/></a>
+							
+								
+						
+				
+			gallery_03
+			
+			
+		
+</td><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_04.jpg" class="lightview" rel="gallery[myset]" title="gallery_04"><img src="thumbs/gallery_04.jpg" width="100" height="100" alt="gallery_04"/></a>
+							
+								
+						
+				
+			gallery_04
+			
+			
+		
+</td></tr><tr><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_05.jpg" class="lightview" rel="gallery[myset]" title="gallery_05"><img src="thumbs/gallery_05.jpg" width="100" height="100" alt="gallery_05"/></a>
+							
+								
+						
+				
+			gallery_05
+			
+			
+		
+</td><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_06.jpg" class="lightview" rel="gallery[myset]" title="gallery_06"><img src="thumbs/gallery_06.jpg" width="100" height="100" alt="gallery_06"/></a>
+							
+								
+						
+				
+			gallery_06
+			
+			
+		
+</td><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_07.jpg" class="lightview" rel="gallery[myset]" title="gallery_07"><img src="thumbs/gallery_07.jpg" width="100" height="100" alt="gallery_07"/></a>
+							
+								
+						
+				
+			gallery_07
+			
+			
+		
+</td><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_08.jpg" class="lightview" rel="gallery[myset]" title="gallery_08"><img src="thumbs/gallery_08.jpg" width="100" height="100" alt="gallery_08"/></a>
+							
+								
+						
+				
+			gallery_08
+			
+			
+		
+</td></tr><tr><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_09.jpg" class="lightview" rel="gallery[myset]" title="gallery_09"><img src="thumbs/gallery_09.jpg" width="100" height="100" alt="gallery_09"/></a>
+							
+								
+						
+				
+			gallery_09
+			
+			
+		
+</td><td  width="100.0">
+
+		
+						
+								
+							<a href="slides/gallery_10.jpg" class="lightview" rel="gallery[myset]" title="gallery_10"><img src="thumbs/gallery_10.jpg" width="100" height="100" alt="gallery_10"/></a>
+							
+								
+						
+				
+			gallery_10
+			
+			
+		
+</td></tr></table>
+  <div class="clearBoth"></div>
+  <div id="footer"><br /><br />
+2008
+LightBox 2 Album created with <a href="http://jalbum.net" title="Album generated by Jalbum 8.0">JAlbum</a><br />
+LightBox 2 Home Page and information <a href="http://jalbum.macosxsupport.com/" title="LightBox 2 Jalbum Skin">LightBox 2 Skin</a>
+</div>
+</div>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+_jaSkin = "LightBox2";
+_jaStyle = "lightview.css";
+_jaVersion = "8.0";
+_jaPageType = "index";
+if (location.href.indexOf("http://") == 0 || location.href.indexOf("https://") == 0) {
+var script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "http://jalbum.net/widgets/load.js";
+document.getElementsByTagName("body")[0].appendChild(script);
+}
+//--><!]]></script>
+
+</body>
+</html>
